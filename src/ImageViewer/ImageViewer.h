@@ -21,7 +21,7 @@ public:
     ~ImageViewer()
     {
         // 只销毁自己创建的窗口
-        if (m_windowCreated)
+        if (m_windowCreated&&cv::getWindowProperty(m_windowName, cv::WND_PROP_VISIBLE))
         {
             cv::destroyWindow(m_windowName);
         }
@@ -91,7 +91,7 @@ public:
 
         cv::Mat mat = m_imageParser->GetMat();
         cv::imshow(m_windowName, mat);
-        cv::waitKey(delay);
+        // cv::waitKey(delay);
     }
 
     void Update()
