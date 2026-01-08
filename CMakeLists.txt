@@ -15,6 +15,7 @@ find_package(ITK REQUIRED
     ITKIOPNG # PNG 读写
     ITKImageFilterBase # 过滤器基类
     ITKCommon # 核心模块
+    ITKMathematicalMorphology
 )
 
 include(${ITK_USE_FILE})
