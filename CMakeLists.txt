@@ -54,3 +54,6 @@ get_nth_parent_directory(${OpenCV_DIR} 1 OpenCV_ROOT)
 find_and_add_dlls(${OpenCV_ROOT} BINARIES "bin" TURE)
 
 file(COPY ${BINARIES} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE})
+
+#创建文件夹
+file(MAKE_DIRECTORY ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE}/output)
