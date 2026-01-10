@@ -1,6 +1,5 @@
 
 #include <itkBinaryMedianImageFilter.h>
-#include <itkBinaryThresholdImageFilter.h>
 #include <itkImageFileReader.h>
 #include <itkImageFileWriter.h>
 #include <ImageViewer.h>
@@ -13,36 +12,26 @@ using WriterImageType = itk::Image<WriterPixelType, 2>;
 using ReaderType = itk::ImageFileReader<InputImageType>;
 using WriterType = itk::ImageFileWriter<WriterImageType>;
 using FilterType = itk::BinaryMedianImageFilter<InputImageType, OutputImageType>;
-using ThresholdFilterType = itk::BinaryThresholdImageFilter<InputImageType, OutputImageType>;
 
 int main()
 {
     ReaderType::Pointer reader = ReaderType::New();
-    reader->SetFileName("../../data/BrainProtonDensitySlice.png");
+    reader->SetFileName("output/BinaryThresholdImageFilter.png");
     reader->Update();
-
-    ThresholdFilterType::Pointer thresholdFilter = ThresholdFilterType::New();
-    // 阈值
-    thresholdFilter->SetInput(reader->GetOutput());
-    thresholdFilter->SetLowerThreshold(170);
-    thresholdFilter->SetUpperThreshold(190);
-    thresholdFilter->SetOutsideValue(0);
-    thresholdFilter->SetInsideValue(255);
-    
 
     // 临域
     InputImageType::SizeType indexRadius;
-    indexRadius[0] = 1;
-    indexRadius[1] = 1;
+    indexRadius[0] = 3;
+    indexRadius[1] = 3;
 
     // 二值中值滤波
     FilterType::Pointer filter = FilterType::New();
-    filter->SetInput(thresholdFilter->GetOutput());
+    filter->SetInput(reader->GetOutput());
     filter->SetRadius(indexRadius);
     filter->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/BinaryMedianImage.png");
+    writer->SetFileName("output/BinaryMedianImage3x3.png");
     writer->SetInput(filter->GetOutput());
     writer->Update();
 
