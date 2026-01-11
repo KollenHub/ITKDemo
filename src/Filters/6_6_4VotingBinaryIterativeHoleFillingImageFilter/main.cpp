@@ -1,19 +1,16 @@
 
-#include <itkVotingBinaryHoleFillingImageFilter.h>
+#include <itkVotingBinaryIterativeHoleFillingImageFilter.h>
 #include <itkBinaryThresholdImageFilter.h>
 #include <itkImageFileReader.h>
 #include <itkImageFileWriter.h>
 #include <ImageViewer.h>
-using InputPixelType = unsigned char;
-using OutPixelType = unsigned char;
-using WriterPixelType = unsigned char;
-using InputImageType = itk::Image<InputPixelType, 2>;
-using OutputImageType = itk::Image<OutPixelType, 2>;
-using WriterImageType = itk::Image<WriterPixelType, 2>;
-using ReaderType = itk::ImageFileReader<InputImageType>;
-using WriterType = itk::ImageFileWriter<WriterImageType>;
-using FilterType = itk::VotingBinaryHoleFillingImageFilter<InputImageType, OutputImageType>;
-using ThresholdFilterType = itk::BinaryThresholdImageFilter<InputImageType, OutputImageType>;
+
+using PixelType = unsigned char;
+using ImageType=itk::Image<PixelType, 2>;
+using FilterType=itk::VotingBinaryIterativeHoleFillingImageFilter<ImageType>;
+using ThresholdFilterType=itk::BinaryThresholdImageFilter<ImageType, ImageType>;
+using ReaderType=itk::ImageFileReader<ImageType>;
+using WriterType=itk::ImageFileWriter<ImageType>;
 
 int main()
 {
@@ -31,9 +28,9 @@ int main()
     thresholdFilter->SetInsideValue(255);
 
     // 临域
-    InputImageType::SizeType indexRadius;
-    indexRadius[0] = 1;
-    indexRadius[1] = 1;
+    ImageType::SizeType indexRadius;
+    indexRadius[0] = 3;
+    indexRadius[1] = 3;
 
     // 洞穴填充滤波器
     FilterType::Pointer filter = FilterType::New();
@@ -45,11 +42,11 @@ int main()
     filter->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/VotingBinaryHoleFillingImageFilter2x2.png");
+    writer->SetFileName("output/VotingBinaryIterativeHoleFillingImageFilter2x2.png");
     writer->SetInput(filter->GetOutput());
     writer->Update();
 
-    ImageViewer<WriterPixelType> viewer;
+    ImageViewer<PixelType> viewer;
     viewer.SetITKImage(filter->GetOutput());
     viewer.Show();
     cv::waitKey(0);
