@@ -16,7 +16,7 @@ using FilterType = itk::BinaryMedianImageFilter<InputImageType, OutputImageType>
 int main()
 {
     ReaderType::Pointer reader = ReaderType::New();
-    reader->SetFileName("output/BinaryThresholdImageFilter.png");
+    reader->SetFileName("../../output/BinaryThresholdImageFilter.png");
     reader->Update();
 
     // 临域
@@ -31,7 +31,7 @@ int main()
     filter->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/BinaryMedianImage3x3.png");
+    writer->SetFileName("../../output/BinaryMedianImage3x3.png");
     writer->SetInput(filter->GetOutput());
     writer->Update();
 

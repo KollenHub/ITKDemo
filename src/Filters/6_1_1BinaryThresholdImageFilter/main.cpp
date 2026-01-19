@@ -38,12 +38,7 @@ int main(int argc, char *argv[])
 
     WriterType::Pointer writer = WriterType::New();
 
-    if (!std::filesystem::exists("output"))
-    {
-        std::filesystem::create_directories("output");
-    }
-
-    writer->SetFileName("output/BinaryThresholdImageFilter.png");
+    writer->SetFileName("../../output/BinaryThresholdImageFilter.png");
 
     writer->SetInput(filter->GetOutput());
 

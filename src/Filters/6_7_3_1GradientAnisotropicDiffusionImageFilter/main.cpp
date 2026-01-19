@@ -42,7 +42,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/GradientAnisotropicDiffusionImageFilter.png");
+    writer->SetFileName("../../output/GradientAnisotropicDiffusionImageFilter.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

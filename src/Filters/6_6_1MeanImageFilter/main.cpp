@@ -41,7 +41,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/MeanImageFilter.png");
+    writer->SetFileName("../../output/MeanImageFilter.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

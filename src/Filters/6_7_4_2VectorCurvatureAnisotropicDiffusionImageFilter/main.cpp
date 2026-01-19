@@ -71,12 +71,12 @@ int main()
 
     // Save the component of the original gradient
     component->SetInput(gradientFilter->GetOutput());
-    writer->SetFileName("output/OriginalGradientComponent.png");
+    writer->SetFileName("../../output/OriginalGradientComponent.png");
     writer->Update();
 
     // Save the component of the smoothed gradient
     component->SetInput(filter->GetOutput());
-    writer->SetFileName("output/VectorCurvatureAnisotropicDiffusionImageFilter.png");
+    writer->SetFileName("../../output/VectorCurvatureAnisotropicDiffusionImageFilter.png");
     writer->Update();
 
     return EXIT_SUCCESS;

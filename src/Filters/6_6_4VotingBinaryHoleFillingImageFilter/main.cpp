@@ -45,7 +45,7 @@ int main()
     filter->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/VotingBinaryHoleFillingImageFilter2x2.png");
+    writer->SetFileName("../../output/VotingBinaryHoleFillingImageFilter2x2.png");
     writer->SetInput(filter->GetOutput());
     writer->Update();
 

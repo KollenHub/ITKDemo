@@ -42,7 +42,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/MinMaxCurvatureFlowImageFilter.png");
+    writer->SetFileName("../../output/MinMaxCurvatureFlowImageFilter.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

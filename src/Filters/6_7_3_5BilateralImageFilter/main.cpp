@@ -46,7 +46,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/BilateralImageFilter.png");
+    writer->SetFileName("../../output/BilateralImageFilter.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

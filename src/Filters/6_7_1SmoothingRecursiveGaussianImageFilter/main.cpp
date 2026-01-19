@@ -44,7 +44,7 @@ int main()
     filterY->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/SmoothingRecursiveGaussianImageFilter5x5.png");
+    writer->SetFileName("../../output/SmoothingRecursiveGaussianImageFilter5x5.png");
     writer->SetInput(filterY->GetOutput());
     writer->Update();
 

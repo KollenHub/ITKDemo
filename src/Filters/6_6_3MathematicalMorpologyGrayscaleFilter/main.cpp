@@ -46,18 +46,18 @@ int main()
     grayscaleErode->SetInput(reader->GetOutput());
 
     WriterType::Pointer writegrayscaleThreolder = WriterType::New();
-    writegrayscaleThreolder->SetFileName("output/GrayscaleBaseImage.png");
+    writegrayscaleThreolder->SetFileName("../../output/GrayscaleBaseImage.png");
     writegrayscaleThreolder->SetInput(reader->GetOutput());
     writegrayscaleThreolder->Update();
     
 
     WriterType::Pointer writeDilation = WriterType::New();
-    writeDilation->SetFileName("output/GrayscaleDilate.png");
+    writeDilation->SetFileName("../../output/GrayscaleDilate.png");
     writeDilation->SetInput(grayscaleDialate->GetOutput());
     writeDilation->Update();
 
     WriterType::Pointer writeErode = WriterType::New();
-    writeErode->SetFileName("output/GrayscaleErode.png");
+    writeErode->SetFileName("../../output/GrayscaleErode.png");
     writeErode->SetInput(grayscaleErode->GetOutput());
     writeErode->Update();
 

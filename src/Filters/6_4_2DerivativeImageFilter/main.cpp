@@ -39,7 +39,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/DerivativeImageFilterY_2.png");
+    writer->SetFileName("../../output/DerivativeImageFilterY_2.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

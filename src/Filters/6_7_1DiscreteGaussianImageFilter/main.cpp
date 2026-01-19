@@ -31,7 +31,7 @@ int main()
     gaussianFilter->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/DiscreteGaussianImageFilter.png");
+    writer->SetFileName("../../output/DiscreteGaussianImageFilter.png");
     writer->SetInput(gaussianFilter->GetOutput());
     writer->Update();
 

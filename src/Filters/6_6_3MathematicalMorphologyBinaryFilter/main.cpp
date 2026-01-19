@@ -61,18 +61,18 @@ int main()
     binaryErode->SetInput(thresholder->GetOutput());
 
     WriterType::Pointer writeBinaryThreolder = WriterType::New();
-    writeBinaryThreolder->SetFileName("output/BinaryThreoldBaseImage.png");
+    writeBinaryThreolder->SetFileName("../../output/BinaryThreoldBaseImage.png");
     writeBinaryThreolder->SetInput(thresholder->GetOutput());
     writeBinaryThreolder->Update();
     
 
     WriterType::Pointer writeDilation = WriterType::New();
-    writeDilation->SetFileName("output/BinaryDilate.png");
+    writeDilation->SetFileName("../../output/BinaryDilate.png");
     writeDilation->SetInput(binaryDialate->GetOutput());
     writeDilation->Update();
 
     WriterType::Pointer writeErode = WriterType::New();
-    writeErode->SetFileName("output/BinaryErode.png");
+    writeErode->SetFileName("../../output/BinaryErode.png");
     writeErode->SetInput(binaryErode->GetOutput());
     writeErode->Update();
 

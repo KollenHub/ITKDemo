@@ -17,7 +17,7 @@ endfunction()
 
 #获取多级目录
 # 获取第N级父目录，带默认级别
-# 用法: get_nth_parent_directory(<input_path> [<levels>] [<output_variable>])
+# 用法: get_nth_parent_directory(<input_path> [<levels>] [<../../output_variable>])
 function(get_nth_parent_directory)
     # 解析参数
     set(INPUT_PATH ${ARGV0})

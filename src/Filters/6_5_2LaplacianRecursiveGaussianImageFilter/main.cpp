@@ -38,7 +38,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/LaplacianRecursiveGaussianImageFilter5.png");
+    writer->SetFileName("../../output/LaplacianRecursiveGaussianImageFilter5.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

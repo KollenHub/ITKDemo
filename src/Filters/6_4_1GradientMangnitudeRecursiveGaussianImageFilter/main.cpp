@@ -36,7 +36,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/GradientMangnitudeRecursiveGaussianImageFilter5.0.png");
+    writer->SetFileName("../../output/GradientMangnitudeRecursiveGaussianImageFilter5.0.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 

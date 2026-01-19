@@ -30,7 +30,7 @@ int main()
     sigmoidFilter->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/sigmoid.png");
+    writer->SetFileName("../../output/sigmoid.png");
     writer->SetInput(sigmoidFilter->GetOutput());
     writer->Update();
     return EXIT_SUCCESS;

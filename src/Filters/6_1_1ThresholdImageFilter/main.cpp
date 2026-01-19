@@ -36,25 +36,20 @@ int main(int argc, char *argv[])
 
     WriterType::Pointer writer = WriterType::New();
 
-    if(!std::filesystem::exists("output"))
-    {
-        std::filesystem::create_directories("output");
-    }
-
-    writer->SetFileName("output/threshold_below_180.png");
+    writer->SetFileName("../../output/threshold_below_180.png");
 
     writer->SetInput(filter->GetOutput());
 
     writer->Update();
 
     filter->ThresholdOutside(170, 190);
-    writer->SetFileName("output/threshold_outside_170_190.png");
+    writer->SetFileName("../../output/threshold_outside_170_190.png");
     filter->Update();
     writer->SetInput(filter->GetOutput());
     writer->Update();
 
     filter->ThresholdAbove(180);
-    writer->SetFileName("output/threshold_above_180.png");
+    writer->SetFileName("../../output/threshold_above_180.png");
     filter->Update();
     writer->SetInput(filter->GetOutput());
     writer->Update();

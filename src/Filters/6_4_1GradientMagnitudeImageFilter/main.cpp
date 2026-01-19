@@ -36,7 +36,7 @@ int main()
     rescaler->Update();
 
     WriterType::Pointer writer = WriterType::New();
-    writer->SetFileName("output/gradientMagnitudeImageFilter.png");
+    writer->SetFileName("../../output/gradientMagnitudeImageFilter.png");
     writer->SetInput(rescaler->GetOutput());
     writer->Update();
 
