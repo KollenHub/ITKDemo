@@ -13,9 +13,11 @@ find_package(ITK REQUIRED
     ITKSmoothing # 平滑滤波模块
     ITKIOImageBase # I/O 基础模块
     ITKIOPNG # PNG 读写
+    ITKIOJPEG # JPEG 读写
     ITKImageFilterBase # 过滤器基类
     ITKCommon # 核心模块
     ITKMathematicalMorphology
+    ITKIOGDCM # GDCM 模块
 )
 
 include(${ITK_USE_FILE})
@@ -53,6 +55,9 @@ find_and_add_dlls(${ITK_ROOT} BINARIES)
 
 get_nth_parent_directory(${OpenCV_DIR} 1 OpenCV_ROOT)
 find_and_add_dlls(${OpenCV_ROOT} BINARIES "bin" TURE)
+
+get_nth_parent_directory(${GDCM_DIR} 2 GDCM_ROOT)
+find_and_add_dlls(${GDCM_ROOT} BINARIES "bin" TURE)
 
 file(COPY ${BINARIES} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE})
 

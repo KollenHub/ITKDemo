@@ -39,6 +39,7 @@ function(find_and_add_dlls LIB_ROOT)
         file(GLOB DLL_FILES "${BIN_DIR}/*.dll")
     elseif(${CMAKE_BUILD_TYPE} STREQUAL "Debug")
         file(GLOB DLL_FILES "${BIN_DIR}/*d.dll")
+        file(GLOB PDB_FILES "${BIN_DIR}/*.pdb")
     else()
         # Release 模式：排除以 'd' 结尾的 debug dll
         file(GLOB DLL_FILES "${BIN_DIR}/*[^d].dll")
@@ -46,6 +47,7 @@ function(find_and_add_dlls LIB_ROOT)
 
     # 将找到的 DLL 添加到输出变量
     list(APPEND ${OUTPUT_VAR} ${DLL_FILES})
+    list(APPEND ${OUTPUT_VAR} ${PDB_FILES})
 
     # 将结果返回给调用者
     set(${OUTPUT_VAR} ${${OUTPUT_VAR}} PARENT_SCOPE)
