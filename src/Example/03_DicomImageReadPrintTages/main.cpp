@@ -14,7 +14,7 @@ using namespace std;
 int main(int argc, char **argv)
 {
     ReaderType::Pointer reader = ReaderType::New();
-    reader->SetFileName("D:/DICOM/DCM/011958333339.dcm");
+    reader->SetFileName("D:/DICOM/data2/output2_slice_1.dcm");
     ImageIOType::Pointer dicomIO = ImageIOType::New();
     reader->SetImageIO(dicomIO);
     reader->Update();

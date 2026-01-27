@@ -24,14 +24,18 @@ include(${ITK_USE_FILE})
 
 find_package(OpenCV CONFIG REQUIRED)
 
+find_package(GDCM CONFIG REQUIRED)
+
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 add_subdirectory(src/ImageViewer)
 
+add_subdirectory(src/GDCMReadDemo)
+
 get_direct_subdirectories(${CMAKE_SOURCE_DIR}/src SUBDIRS)
 foreach(SUBDIR ${SUBDIRS})
     get_filename_component(SUBDIR_NAME ${SUBDIR} NAME)
-    if(NOT ${SUBDIR_NAME} STREQUAL "ImageViewer")
+    if(NOT ${SUBDIR_NAME} STREQUAL "ImageViewer" OR ${SUBDIR_NAME} STREQUAL "GDCMReadDemo" )
         get_direct_subdirectories(${SUBDIR} NEXT_SUBDIRS)
         foreach(NEXT_SUBDIR ${NEXT_SUBDIRS})
             get_filename_component(NEXT_SUBDIR_NAME ${NEXT_SUBDIR} NAME)
@@ -44,6 +48,7 @@ foreach(SUBDIR ${SUBDIRS})
             if(${NEXT_SUBDIR_NAME}_SRCS)
                 add_executable(${NEXT_SUBDIR_NAME} ${${NEXT_SUBDIR_NAME}_SRCS})
                 target_link_libraries(${NEXT_SUBDIR_NAME} PRIVATE ImageCore)
+
             endif()
         endforeach()
     endif()
