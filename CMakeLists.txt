@@ -18,6 +18,7 @@ find_package(ITK REQUIRED
     ITKCommon # 核心模块
     ITKMathematicalMorphology
     ITKIOGDCM # GDCM 模块
+    ITKIODCMTK
 )
 
 include(${ITK_USE_FILE})
