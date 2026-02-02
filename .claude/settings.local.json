@@ -5,7 +5,12 @@
       "Bash(gh api:*)",
       "Bash(curl -sL:*)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(cmake:*)",
+      "Bash(python:*)",
+      "Bash(D:CodeITKDemobinReleaseDCMTKReader.exe)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
     ]
   }
 }

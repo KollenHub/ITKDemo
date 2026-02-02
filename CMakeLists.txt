@@ -31,8 +31,6 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 
 add_subdirectory(src/ImageViewer)
 
-add_subdirectory(src/GDCMReadDemo)
-
 get_direct_subdirectories(${CMAKE_SOURCE_DIR}/src SUBDIRS)
 foreach(SUBDIR ${SUBDIRS})
     get_filename_component(SUBDIR_NAME ${SUBDIR} NAME)
@@ -64,6 +62,9 @@ find_and_add_dlls(${OpenCV_ROOT} BINARIES "bin" TURE)
 
 get_nth_parent_directory(${GDCM_DIR} 2 GDCM_ROOT)
 find_and_add_dlls(${GDCM_ROOT} BINARIES "bin" TURE)
+
+get_nth_parent_directory(${DCMTK_DIR} 1 DCMTK_ROOT)
+find_and_add_dlls(${DCMTK_ROOT} BINARIES "bin")
 
 file(COPY ${BINARIES} DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_BUILD_TYPE})
 
