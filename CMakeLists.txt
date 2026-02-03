@@ -19,6 +19,7 @@ find_package(ITK REQUIRED
     ITKMathematicalMorphology
     ITKIOGDCM # GDCM 模块
     ITKIODCMTK
+    ITKRegionGrowing # 阈值处理模块
 )
 
 include(${ITK_USE_FILE})
