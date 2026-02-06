@@ -20,6 +20,7 @@ find_package(ITK REQUIRED
     ITKIOGDCM # GDCM 模块
     ITKIODCMTK
     ITKRegionGrowing # 阈值处理模块
+    ITKWatersheds #分水岭算法模块
 )
 
 include(${ITK_USE_FILE})
@@ -35,7 +36,7 @@ add_subdirectory(src/ImageViewer)
 get_direct_subdirectories(${CMAKE_SOURCE_DIR}/src SUBDIRS)
 foreach(SUBDIR ${SUBDIRS})
     get_filename_component(SUBDIR_NAME ${SUBDIR} NAME)
-    if(NOT ${SUBDIR_NAME} STREQUAL "ImageViewer" OR ${SUBDIR_NAME} STREQUAL "GDCMReadDemo" )
+    if(NOT ${SUBDIR_NAME} STREQUAL "ImageViewer" OR ${SUBDIR_NAME} STREQUAL "GDCMReadDemo")
         get_direct_subdirectories(${SUBDIR} NEXT_SUBDIRS)
         foreach(NEXT_SUBDIR ${NEXT_SUBDIRS})
             get_filename_component(NEXT_SUBDIR_NAME ${NEXT_SUBDIR} NAME)
